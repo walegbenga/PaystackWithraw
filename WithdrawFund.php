@@ -32,7 +32,7 @@ curl_setopt_array($curl, array(
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-    "Authorization: Bearer sk_live_5f256bfcecd0840cbe9c1e8c63e0a4013beac23b",
+    "Authorization: Bearer YOUR PAYSTACK SECRET KEY",
     "Cache-Control: no-cache",
     ),
 ));
@@ -61,7 +61,7 @@ $url = "https://api.paystack.co/transferrecipient";
   curl_setopt($ch,CURLOPT_POST, true);
   curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Authorization: Bearer sk_live_5f256bfcecd0840cbe9c1e8c63e0a4013beac23b",
+    "Authorization: Bearer YOUR PAYSTACK SECRET KEY",
     "Cache-Control: no-cache",
   ));
   
@@ -93,7 +93,7 @@ $url = "https://api.paystack.co/transferrecipient";
   curl_setopt($ch,CURLOPT_POST, true);
   curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Authorization: Bearer sk_live_5f256bfcecd0840cbe9c1e8c63e0a4013beac23b",
+    "Authorization: Bearer YOUR PAYSTACK SECRET KEY",
     "Cache-Control: no-cache",
   ));
   
