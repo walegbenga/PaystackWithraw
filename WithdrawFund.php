@@ -8,63 +8,9 @@
 */
 // Initialize the session
 session_start();
- 
-// Check if the user is logged in, if not then redirect him/her to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
 
 //connect to database
 require('connect.php');
-
-// Insert transaction details into the db table
-        //$updateInsert.="INSERT INTO transaction_history (reference,intergration,amount,receipient,statuses,request,trans_id) VALUE ('254d78d5d','sc','500','45d','success','true','cool');";
-        
-  //mysqli_query($con,$updateInsert);      
-        
-        
-//select user info  from member table
-$sql2 ="SELECT * FROM members WHERE phone_number={$_SESSION['phone_number']}";  
-$result2 = mysqli_query($con, $sql2);
-$data2 = mysqli_fetch_array($result2);
-$trader_first_name = $data2['first_name'];
-$trader_last_name = $data2['last_name'];
-$trader_phone_number = $data2['phone_number'];
-$trader_email_address = $data2['email_address'];
-$trader_my_referral_link=$data2['my_referral_link'];
-$trader_referral_bonus_received_n=$data2['referral_bonus_received'];
-$trader_penny_wallet_naira=$data2['penny_wallet_naira'];
-
-$trader_referral_withdraw_status=$data2['referral_withdraw_status'];
-$trader_referral_withdraw=$data2['referral_withdraw'];
-$trader_agent_commission=$data2['agent_commission'];
-$developer_bonus_received=$data2['developer_bonus_received'];
-
-$my_country=$data2['country'];
-$my_referral_level=$data2['my_referral_level'];
-$login_status=  $data2['login_status'];
-$member_id=$data2['member_id'];
-
-/////staff
-/*
-$trade_staff_level=$data2['trade_staff_level'];
-$staff_wallet_naira= $data2['staff_trade_referral_wallet_naira'];
-$staff_wallet_usd= $data2['staff_trade_referral_wallet_usd'];
-$staff_trade_refer_counter= $data2['staff_trade_refer_counter'];
-	*/
-////////////////////////advert earnings
-$advert_earning_wallet_naira= $data2['advert_earning_wallet_naira'];
-$advert_earning_wallet_usd= $data2['advert_earning_wallet_usd'];
-$total_pay_advert_click= $data2['total_pay_advert_click'];
-
-////////////////////sum all user earnings/////////////////////////////////
-$total_due_for_withdrawal= $trader_referral_bonus_received_n ;//+ $trader_agent_commission + $developer_bonus_received;
-$user_account_number = $data2['bank_account'];
-$user_account_bank = $data2['bank_name'];
-$user_account_code = $data2['bank_code'];
-
-
 
 if (isset($_POST['withdraw']))  {
     $withdraw = filter_var($_POST["withdraw_amount"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
